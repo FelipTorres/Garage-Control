@@ -19,7 +19,7 @@ A vehicle can only belong to one customer. But a customer can have several vehic
 - Node.js
 - Express.js
 - Sequelize
-- SQLite
+- MySQL
 
 ## Functionalities
 
