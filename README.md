@@ -29,17 +29,19 @@ A vehicle can only belong to one customer. But a customer can have several vehic
 - Deletion of records
 - Relationships between models
 
-## Instalação
+## Installation
 
-1. Clone o repositório:
+1. Clone the repository:
     ```bash
     git clone https://github.com/FelipTorres/Garage-Control.git
     ```
-2. Navegue até o diretório do projeto:
+
+2. Navigate to the project directory:
     ```bash
-    cd seu-repositorio
+    cd your_directory
     ```
-3. Instale as dependências:
+3. Install dependencies:
     ```bash
     npm install
     ```
+
