@@ -23,7 +23,11 @@ module.exports = (sequelize, DataTypes) => {
      * @param {object} models - The models to associate with.
      */
     static associate(models) {
-      // define association here
+
+      Vehicle.belongsTo(models.People, {
+        foreignKey: 'people_id',
+      });
+
     }
   }
 

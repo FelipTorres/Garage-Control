@@ -23,7 +23,10 @@ module.exports = (sequelize, DataTypes) => {
      * @param {object} models - The models to associate with.
      */
     static associate(models) {
-      // define association here
+
+      People.hasMany(models.Vehicle, {
+        foreignKey: 'people_id',
+      });
     }
   }
 
