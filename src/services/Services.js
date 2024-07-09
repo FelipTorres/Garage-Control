@@ -19,8 +19,53 @@ class Services {
      * @returns {Promise<Array<object>>} The list of all records.
      */
     async getAllRecords () {
-        console.log(this.model);
+
         return dataSource[this.model].findAll();
+    }
+
+    /**
+     * @param id
+     * @returns {Promise<Model|null>}
+     */
+    async getRecordById(id) {
+
+        return dataSource[this.model].findByPk(id);
+    }
+
+    /**
+     * @param newRecord
+     * @returns {Promise<newRecord>}
+     */
+    async createRecord(newRecord) {
+
+        return dataSource[this.model].create(newRecord);
+    }
+
+    /**
+     * @param id
+     * @param updatedRecord
+     * @returns {Promise<*>}
+     */
+    async updateRecord(id, updatedRecord) {
+
+        return dataSource[this.model].update(updatedRecord, {
+            where: {
+                id: id
+            }
+        });
+    }
+
+    /**
+     * @param id
+     * @returns {Promise<*>}
+     */
+    async deleteRecord(id) {
+
+        return dataSource[this.model].destroy({
+            where: {
+                id: id
+            }
+        });
     }
 }
 

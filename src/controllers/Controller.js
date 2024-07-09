@@ -26,7 +26,84 @@ class Controller {
 
         } catch (error) {
 
-            return res.status(40).json(error);
+            return res.status(400).json(error);
+        }
+    }
+
+    /**
+     * Get a record by id from the entity service and sends it as a JSON response.
+     * @param req
+     * @param res
+     * @returns {Promise<*>}
+     */
+    async getById(req, res) {
+        try {
+
+            const { id } = req.params;
+            const people = await this.entityService.getRecordById(id);
+            return res.status(200).json(people);
+
+        } catch (error) {
+
+            return res.status(400).json(error);
+        }
+    }
+
+    /**
+     * Create a new record in the entity service and sends it as a JSON response.
+     * @param req
+     * @param res
+     * @returns {Promise<*>}
+     */
+    async createNew(req, res) {
+        try {
+
+            const newPeople = req.body;
+            const createdPeople = await this.entityService.createRecord(newPeople);
+            return res.status(201).json(createdPeople);
+
+        } catch (error) {
+
+            return res.status(400).json(error);
+        }
+    }
+
+    /**
+     * Update a record in the entity service and sends a response.
+     * @param req
+     * @param res
+     * @returns {Promise<*>}
+     */
+    async update(req, res) {
+        try {
+
+            const { id } = req.params;
+            const updatedPeople = req.body;
+            await this.entityService.updateRecord(id, updatedPeople);
+            return res.status(204).end();
+
+        } catch (error) {
+
+            return res.status(400).json(error);
+        }
+    }
+
+    /**
+     * Delete a record in the entity service and sends a response.
+     * @param req
+     * @param res
+     * @returns {Promise<*>}
+     */
+    async delete(req, res) {
+        try {
+
+            const { id } = req.params;
+            await this.entityService.deleteRecord(id);
+            return res.status(204).end();
+
+        } catch (error) {
+
+            return res.status(400).json(error);
         }
     }
 }
