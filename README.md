@@ -38,7 +38,7 @@ A vehicle can only belong to one customer. But a customer can have several vehic
 
 2. Navigate to the project directory:
     ```bash
-    cd your_directory
+    cd Garage-Control
     ```
 3. Install dependencies:
     ```bash
